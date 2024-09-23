@@ -7,17 +7,19 @@ internal class Program
 
         NumericOperations.Run();
 
+        Console.WriteLine("\n\n\n----------------------");
+
         var fileLister = new FileSearcher();
         int filesFound = 0;
 
-
+        
         List<string> filenames = new List<string>();
         EventHandler<FileArgs> onFileFound = (sender, eventArgs) =>
         {
             filenames.Add(eventArgs.fileName);
             eventArgs.CancelSearch = false;
 
-            if (eventArgs.fileName.Contains("lib")) eventArgs.CancelSearch = true;
+            if (eventArgs.fileName.Contains("Write")) eventArgs.CancelSearch = true;
 
             filesFound++;
 
@@ -25,7 +27,7 @@ internal class Program
 
         fileLister.FileFound += onFileFound;
 
-        fileLister.Search(@"F:\");
+        fileLister.Search(@"F:\Steam");
 
         fileLister.FileFound -= onFileFound;
 
