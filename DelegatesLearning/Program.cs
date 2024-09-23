@@ -30,7 +30,6 @@ internal class Program
         fileLister.FileFound -= onFileFound;
 
         Console.WriteLine(String.Join(System.Environment.NewLine, filenames));
-        Console.WriteLine("Max length: " + filenames.Max(filenames => filenames.Length));
         Console.WriteLine("filesFound: " + filesFound);
 
         Console.WriteLine("---------");
